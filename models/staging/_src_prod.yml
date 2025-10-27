@@ -1,0 +1,10 @@
+sources:
+  - name: negozio
+    database: prova
+    schema: models
+    tables:
+      - name: products_t0
+      - name: clients_t0
+      - name: products_t1
+      - name: clients_t1
+
