@@ -4,7 +4,6 @@ WITH
 t0 AS (
     SELECT
         *
-    
     FROM {{ source('negozio', 'customers_t0') }}
 ),
 
@@ -12,7 +11,6 @@ t0 AS (
 t1 AS (
     SELECT
         *
-    
     FROM {{ source('negozio', 'customers_t1') }}
 ),
 

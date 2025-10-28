@@ -4,7 +4,6 @@ WITH
 t0 AS (
     SELECT
         *
-        -- Assegna una bandiera per tracciare la sorgente
     FROM {{ source('negozio', 'customers_t0') }}
 ),
 
