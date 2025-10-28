@@ -78,8 +78,21 @@ unpivoted AS (
         TRUE AS is_current
     FROM joined,
     WHERE t1_product_cd IS NOT NULL
+),
+
+final as (
+    select 
+        {{ dbt_utils.generate_surrogate_key(['product_cd']) }} AS product_id,
+        product_cd,
+        model_name,
+        brand,
+        category,
+        price,
+        color,
+        is_current
+    from unpivoted
 )
 
 SELECT
 *
-FROM unpivoted
+FROM final
