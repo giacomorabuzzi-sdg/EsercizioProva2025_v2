@@ -1,6 +1,6 @@
 sources:
   - name: negozio
-    database: prova
+    database: prova2
     schema: models
     tables:
 
