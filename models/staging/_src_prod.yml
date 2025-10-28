@@ -3,8 +3,27 @@ sources:
     database: prova
     schema: models
     tables:
-      - name: products_t0
-      - name: clients_t0
-      - name: products_t1
-      - name: clients_t1
 
+      - name: products_t0
+        description: Tabella dei prodotti con i dati storici iniziali (versione 0).
+        tests:
+          - not_null:
+              column_name: product_cd
+
+      - name: customers_t0
+        description: Tabella dei clienti con i dati storici iniziali (versione 0).
+        tests:
+          - not_null:
+              column_name: customers_cd
+
+      - name: products_t1
+        description: Tabella dei prodotti con i dati più recenti (versione 1).
+        tests:
+          - not_null:
+              column_name: product_cd
+
+      - name: customers_t1
+        description: Tabella dei clienti con i dati più recenti (versione 1).
+        tests:
+          - not_null:
+              column_name: customers_cd
