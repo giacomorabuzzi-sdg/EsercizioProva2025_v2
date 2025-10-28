@@ -1,0 +1,13 @@
+models:
+
+  - name: scd1_customers
+    description: "Tabella della dimensione Clienti implementata con la strategia **SCD Tipo 1**. Gli attributi dei clienti vengono **sovrascritti** direttamente in caso di modifica, mantenendo solo i valori più recenti. Utilizza una colonna di ultima modifica (`last_update`) e un flag di eliminazione soft (`is_deleted`)."
+    columns:
+      - name: customer_id
+      - name: customer_cd
+      - name: name
+      - name: email
+      - name: city
+      - name: member_since
+      - name: last_update
+      - name: is_deleted

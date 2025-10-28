@@ -14,7 +14,7 @@ sources:
         description: Tabella dei clienti con i dati storici iniziali (versione 0).
         tests:
           - not_null:
-              column_name: customers_cd
+              column_name: customer_cd
 
       - name: products_t1
         description: Tabella dei prodotti con i dati più recenti (versione 1).
@@ -26,4 +26,4 @@ sources:
         description: Tabella dei clienti con i dati più recenti (versione 1).
         tests:
           - not_null:
-              column_name: customers_cd
+              column_name: customer_cd

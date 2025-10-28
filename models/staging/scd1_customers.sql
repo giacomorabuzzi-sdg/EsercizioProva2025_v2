@@ -1,57 +1,43 @@
--- T0: Nuovi dati in arrivo dalla sorgente
-WITH 
+{{ 
+    config(
+        materialized = 'incremental',
+        unique_key = 'customer_cd',
+        incremental_strategy = 'delete+insert',
+    ) 
+}}
+with 
 
-t0 AS (
-    SELECT
+source as (
+    select
         *
-    FROM {{ source('negozio', 'customers_t0') }}
+    {% if is_incremental() %}
+    from {{ source('negozio', 'customers_t1') }}
+    {% else %}
+    from {{ source('negozio', 'customers_t0') }}
+    {% endif %}
 ),
 
--- T1: Dati correnti
-t1 AS (
-    SELECT
-        *
-    FROM {{ source('negozio', 'customers_t1') }}
-),
-
--- Unioned: Unione dei dati T0 e T1
-unioned AS (
-    SELECT * FROM t0
-    UNION ALL
-    SELECT * FROM t1
-),
-
-
--- Most_Recent: Identifica il record più recente per ogni cliente
-most_recent AS (
-    SELECT
-        *,
-        ROW_NUMBER() OVER (
-            PARTITION BY customer_cd
-            ORDER BY last_update DESC
-        ) as rn
-    FROM unioned
-),
-
--- Final: SCD 1 - Seleziona solo il record con rn = 1
-final AS (
-    SELECT
-        {{ dbt_utils.generate_surrogate_key(['customer_cd']) }} AS customer_id,
+delta_calc as (
+    select
         customer_cd,
         name,
         email,
         city,
         member_since,
         last_update,
-        case
-            when (is_deleted) is null then false
-            else true end as is_deleted
-    
-    FROM most_recent
-    WHERE rn = 1
+        is_deleted
+    from source
+    {% if is_incremental() %}
+    where last_update > (select max(last_update) from {{ this }})
+    {% endif %}
+),
+
+final as (
+    select
+        {{ dbt_utils.generate_surrogate_key(['customer_cd'])  }} as customer_id,
+        *,
+        current_timestamp() as dbt_updated_at
+    from delta_calc
 )
 
-
-SELECT
-    *
-FROM final
+select * from final

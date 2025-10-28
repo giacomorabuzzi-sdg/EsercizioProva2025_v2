@@ -1,0 +1,14 @@
+models:
+  
+  - name: scd1_products
+    description: "Tabella della dimensione Prodotti implementata con la strategia **SCD Tipo 1**. Gli attributi dei prodotti vengono **sovrascritti** in caso di modifica (ad esempio un aggiornamento del prezzo o del colore), riflettendo sempre lo stato **attuale** del prodotto. Include un flag di eliminazione soft (`is_deleted`)."
+    columns:
+      - name: product_id
+      - name: product_cd
+      - name: model_name
+      - name: brand
+      - name: category
+      - name: price
+      - name: color
+      - name: is_deleted
+      

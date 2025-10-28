@@ -1,0 +1,13 @@
+models:
+  
+  - name: scd2_products
+    description: "Tabella della dimensione Prodotti implementata con la strategia **SCD Tipo 2**. Mantiene la **cronologia completa** delle modifiche agli attributi dei prodotti (ad esempio il prezzo o la categoria) e utilizza un flag per il record attivo (`is_current`)."
+    columns:
+      - name: product_id
+      - name: product_cd
+      - name: model_name
+      - name: brand
+      - name: category
+      - name: price
+      - name: color
+      - name: is_current
