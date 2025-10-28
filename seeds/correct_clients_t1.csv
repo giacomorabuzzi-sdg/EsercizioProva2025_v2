@@ -1,0 +1,9 @@
+CUSTOMER_CD,NAME,EMAIL,CITY,MEMBER_SINCE,LAST_UPDATE,IS_DELETED
+C001,Marco Bianchi,m.bianchi@email.com,Milan,2024-01-15,2025-10-28,
+C002,Giulia Rossi,giulia.rossi@email.com,Rome,2003-05-30,2025-10-28,
+C003,Alessandro Verdi,ale.verdi@email.com,Bologna,2024-03-10,2025-10-29,
+C004,Chiara Neri,chiara.n@email.com,Turin,2022-11-05,2025-10-28,
+C005,Luca Gialli,luca.gialli@email.com,Milan,2024-09-01,2025-10-29, 1
+C006,Sara Bruno,sara.bruno@email.com,Rome,2023-07-20,2025-10-28,
+C007,Davide Costa,davide.costa@email.com,Genoa,2024-10-05,2025-10-29,
+C008,Beatrice Buratti,beatrice.buratti@hotmail.com,Venezia,2025-05-28,2025-10-29,
