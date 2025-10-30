@@ -10,4 +10,6 @@ models:
       - name: category
       - name: price
       - name: color
+      - name: is_deleted
+      - name: dbt_updated_at
       - name: is_current

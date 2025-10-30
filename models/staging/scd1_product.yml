@@ -8,7 +8,8 @@ models:
       - name: model_name
       - name: brand
       - name: category
-      - name: price
+      - name: list_price
       - name: color
       - name: is_deleted
+      - name: dbt_updated_at
       

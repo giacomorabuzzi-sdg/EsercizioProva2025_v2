@@ -11,3 +11,4 @@ models:
       - name: member_since
       - name: last_update
       - name: is_deleted
+      - name: dbt_updated_at

@@ -9,6 +9,9 @@ models:
       - name: email
       - name: city
       - name: member_since
-      - name: valid_from_date
-      - name: valid_to_date
+      - name: last_update
+      - name: is_deleted
+      - name: dbt_updated_at
+      - name: valid_from
+      - name: valid_to
       - name: is_current
